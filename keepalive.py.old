@@ -1,0 +1,19 @@
+import requests
+import time
+from datetime import datetime
+
+api_url = "https://temperature-ugdebiz6jq-uc.a.run.app"
+#api_url = "http://127.0.0.1:5001/bvik-370610/us-central1/temperature"
+
+
+def reportTime():
+    reportTime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    report =  { "reporter":"bvik1", "datetime":reportTime}
+    print(report)
+    response = requests.post(api_url, json=report)
+    print(response.status_code)
+
+while True:
+    print("tick")
+    reportTime()
+    time.sleep(30)
