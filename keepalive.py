@@ -17,7 +17,7 @@ def try_post(url):
        # TODO: cancellation logic to return False
        return 5
     else:
-       return 900
+       return 60*10
 
 while True:
     timeout = try_post(api_url)
